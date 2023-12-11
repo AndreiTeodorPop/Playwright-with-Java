@@ -31,6 +31,7 @@ public class ParallelTest extends Thread {
                 .setViewportSize(width, height));
         page = browserContext.newPage();
         page.navigate("https://demo.automationtesting.in/Register.html");
+//        page.navigate("https://demoqa.com");
         assertThat(page).hasTitle("Register");
         page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
         page.locator("//input[@ng-model='FirstName']").fill("Andrei");
@@ -69,7 +70,7 @@ public class ParallelTest extends Thread {
                 browserType = playwright.webkit();
                 break;
             default:
-                throw new IllegalArgumentException("Prove a valid browser name");
+                throw new IllegalArgumentException("Provide a valid browser name");
         }
         return browserType;
     }
