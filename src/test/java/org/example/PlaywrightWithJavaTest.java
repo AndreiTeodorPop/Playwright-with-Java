@@ -56,7 +56,8 @@ public class PlaywrightWithJavaTest {
 
     @Test
     public void registerDemo() throws InterruptedException {
-        page.navigate("https://demo.automationtesting.in/Register.html");
+        page.navigate("https://demo.automationtesting.in/Index.html");
+        page.locator("//img[@id='enterimg']").click();
         assertThat(page).hasTitle("Register");
         page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RegisterPage.png")).setFullPage(true));
@@ -64,8 +65,29 @@ public class PlaywrightWithJavaTest {
         page.locator("//input[@ng-model='LastName']").fill("Pop");
         page.locator("//button[@id='Button1']").screenshot(new Locator.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RefreshButton.png")));
         page.click("//button[@id='Button1']");
+        Thread.sleep(3000);
         page.click("//a[contains(@href,'Index.html')]");
-//        Thread.sleep(3000);
+    }
+
+    @Test
+    public void downloadFileDemo() throws InterruptedException {
+        page.navigate("https://demo.automationtesting.in/Index.html");
+        page.locator("//img[@id='enterimg']").click();
+        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
+        Locator moreList = page.locator("//a[@class='dropdown-toggle']").getByText("More");
+        moreList.click();
+        Locator fileDownload = page.locator("ul.dropdown-menu li", new Page.LocatorOptions().setHasText("File Download"));
+        fileDownload.click();
+        assertThat(page).hasTitle("File input - Multi select");
+        Download download = page.waitForDownload(() -> {
+            page.locator("//a[@class='btn btn-primary']").click();
+        });
+        Thread.sleep(3000);
+        System.out.println(download.path());
+        String path = System.getProperty("user.dir");
+        download.saveAs(Paths.get(path + File.separator + "src/main/resources/" + "SampleFile.pdf"));
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/DownloadPage.png")).setFullPage(true));
+        page.click("//a[contains(@href,'Index.html')]");
     }
 
     @AfterMethod
