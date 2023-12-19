@@ -30,7 +30,7 @@ public class PlaywrightWithJavaTest {
         int height = (int) screenSize.getHeight();
         playwright = Playwright.create();
         BrowserType browserType;
-        switch(browserName) {
+        switch (browserName) {
             case "Chrome":
                 browserType = playwright.chromium();
                 break;
@@ -59,26 +59,31 @@ public class PlaywrightWithJavaTest {
         page.navigate("https://demo.automationtesting.in/Register.html");
         assertThat(page).hasTitle("Register");
         page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RegisterPage.png")).setFullPage(true));
         page.locator("//input[@ng-model='FirstName']").fill("Andrei");
         page.locator("//input[@ng-model='LastName']").fill("Pop");
+        page.locator("//button[@id='Button1']").screenshot(new Locator.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RefreshButton.png")));
         page.click("//button[@id='Button1']");
         page.click("//a[contains(@href,'Index.html')]");
-        Thread.sleep(3000);
+//        Thread.sleep(3000);
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-//        String pathProject = System.getProperty("user.dir");
-//        String testName = result.getMethod().getMethodName();
-//        System.out.println(testName);
-//        Path videoName = page.video().path().getFileName();
-//        System.out.println(videoName);
-        page.close();
+        if (result.getStatus() == 1) {
+            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/IndexPage.png")));
+        }
+        String pathProject = System.getProperty("user.dir");
+        String testName = result.getMethod().getMethodName();
+        System.out.println(testName);
+        Path videoName = page.video().path().getFileName();
+        System.out.println(videoName);
         browser.close();
+        page.close();
         playwright.close();
-//        File file1 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + videoName);
-//        File file2 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + testName + ".webm");
-//        boolean status = file1.renameTo(file2);
-//        System.out.println(status);
+        File file1 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + videoName);
+        File file2 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + testName + ".webm");
+        boolean status = file1.renameTo(file2);
+        System.out.println(status);
     }
 }
