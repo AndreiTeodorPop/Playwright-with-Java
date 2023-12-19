@@ -3,21 +3,21 @@
     <test name="Chrome">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="org.example.PlaywrightWithJavaTest"/>
+            <class name="org.example.testng.pages.RegisterPage"/>
         </classes>
     </test>
 
-<!--    <test name="FireFox">-->
-<!--        <parameter name="browser" value="FireFox"/>-->
-<!--        <classes>-->
-<!--            <class name="org.example.PlaywrightWithJavaTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <test name="WebKit">
+        <parameter name="browser" value="WebKit"/>
+        <classes>
+            <class name="org.example.testng.pages.DownloadPage"/>
+        </classes>
+    </test>
 
-<!--    <test name="WebKit">-->
-<!--        <parameter name="browser" value="WebKit"/>-->
-<!--        <classes>-->
-<!--            <class name="org.example.PlaywrightWithJavaTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <!--    <test name="FireFox">-->
+    <!--        <parameter name="browser" value="FireFox"/>-->
+    <!--        <classes>-->
+    <!--            <class name="org.example.ExampleTest"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 </suite>
