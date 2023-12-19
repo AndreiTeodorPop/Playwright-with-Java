@@ -1,4 +1,4 @@
-package org.example.testng.pages;
+package org.example.tests;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
@@ -9,7 +9,11 @@ import java.nio.file.Paths;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class RegisterPage extends Hook {
+/**
+ * @author : andrei
+ * @created : 12/19/2023, Tuesday
+ **/
+public class RegisterPageTest extends Hook {
 
     @Test
     public void registerDemo() {

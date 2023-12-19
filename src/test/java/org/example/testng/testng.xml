@@ -3,14 +3,14 @@
     <test name="Chrome">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="org.example.testng.pages.RegisterPage"/>
+            <class name="org.example.tests.RegisterPageTest"/>
         </classes>
     </test>
 
     <test name="WebKit">
         <parameter name="browser" value="WebKit"/>
         <classes>
-            <class name="org.example.testng.pages.DownloadPage"/>
+            <class name="org.example.tests.DownloadPageTest"/>
         </classes>
     </test>
 

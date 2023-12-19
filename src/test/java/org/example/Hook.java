@@ -11,6 +11,10 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * @author : andrei
+ * @created : 12/19/2023, Tuesday
+ **/
 public class Hook {
 
     protected Browser browser;

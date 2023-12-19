@@ -1,4 +1,4 @@
-package org.example.testng.pages;
+package org.example.tests;
 
 import com.microsoft.playwright.Download;
 import com.microsoft.playwright.Locator;
@@ -11,7 +11,11 @@ import java.nio.file.Paths;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
-public class DownloadPage extends Hook {
+/**
+ * @author : andrei
+ * @created : 12/19/2023, Tuesday
+ **/
+public class DownloadPageTest extends Hook {
 
     @Test
     public void downloadFileDemo() {
