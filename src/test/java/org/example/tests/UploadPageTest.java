@@ -1,6 +1,5 @@
 package org.example.tests;
 
-import com.microsoft.playwright.FileChooser;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.example.Hook;
@@ -18,9 +17,6 @@ public class UploadPageTest extends Hook {
 
     @Test
     public void uploadFileDemo() {
-        page.navigate("https://demo.automationtesting.in/Index.html");
-        page.locator("//img[@id='enterimg']").click();
-        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
         Locator moreList = page.locator("//a[@class='dropdown-toggle']").getByText("More");
         moreList.click();
         Locator fileUpload = page.locator("ul.dropdown-menu li", new Page.LocatorOptions().setHasText("File Upload"));

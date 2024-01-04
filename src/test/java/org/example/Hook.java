@@ -51,6 +51,7 @@ public class Hook {
                 .setRecordVideoSize(1280, 720)
                 .setViewportSize(width, height));
         page = browserContext.newPage();
+        navigateToRegisterPageAndAcceptCookies();
     }
 
     @AfterMethod
@@ -70,5 +71,11 @@ public class Hook {
         File file2 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + testName + ".webm");
         boolean status = file1.renameTo(file2);
         System.out.println(status);
+    }
+
+    public void navigateToRegisterPageAndAcceptCookies() {
+        page.navigate("https://demo.automationtesting.in/Index.html");
+        page.locator("//img[@id='enterimg']").click();
+        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
     }
 }

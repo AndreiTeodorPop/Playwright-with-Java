@@ -19,9 +19,6 @@ public class DownloadPageTest extends Hook {
 
     @Test
     public void downloadFileDemo() {
-        page.navigate("https://demo.automationtesting.in/Index.html");
-        page.locator("//img[@id='enterimg']").click();
-        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
         Locator moreList = page.locator("//a[@class='dropdown-toggle']").getByText("More");
         moreList.click();
         Locator fileDownload = page.locator("ul.dropdown-menu li", new Page.LocatorOptions().setHasText("File Download"));

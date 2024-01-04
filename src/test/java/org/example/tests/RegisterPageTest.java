@@ -17,10 +17,7 @@ public class RegisterPageTest extends Hook {
 
     @Test
     public void registerDemo() {
-        page.navigate("https://demo.automationtesting.in/Index.html");
-        page.locator("//img[@id='enterimg']").click();
         assertThat(page).hasTitle("Register");
-        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RegisterPage.png")).setFullPage(true));
         page.locator("//input[@ng-model='FirstName']").fill("Andrei");
         page.locator("//input[@ng-model='LastName']").fill("Pop");
