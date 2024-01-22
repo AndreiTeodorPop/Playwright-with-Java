@@ -23,6 +23,7 @@ public class HomePage extends Hook {
 
     public HomePage navigateToHomePage() {
         page.navigate(url);
+        assertThat(page).hasTitle("Index");
         makeScreenShotOfPage("IndexPage");
         return this;
     }
