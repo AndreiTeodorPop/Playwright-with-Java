@@ -15,7 +15,7 @@ public class UploadPage extends Hook {
 
     private static final String uploadButton = "//input[@id='input-4']";
     private static final String uploadButtonScreenShot = "//div[@class='btn btn-primary btn-file']";
-    private static final String uploadFilePath = "src/main/resources/SamplePicture.jpg";
+    private static final String uploadFilePath = "src/main/resources/upload/SamplePicture.jpg";
 
     public UploadPage(Page page) {
         this.page = page;

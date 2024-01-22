@@ -17,7 +17,7 @@ import static org.playwright.Helper.verifyDownloadedFile;
 public class DownloadPage extends Hook {
 
     private final String expectedFileName = "SampleFile.pdf";
-    private final String location = System.getProperty("user.dir") + File.separator + "src/main/resources/";
+    private final String location = System.getProperty("user.dir") + File.separator + "src/main/resources/download/";
     private static final String downloadButton = "//a[@class='btn btn-primary']";
 
 
