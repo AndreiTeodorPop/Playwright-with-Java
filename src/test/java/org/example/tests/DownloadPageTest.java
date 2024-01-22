@@ -1,15 +1,10 @@
 package org.example.tests;
 
-import com.microsoft.playwright.Download;
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
 import org.example.Hook;
+import org.example.pages.DownloadPage;
+import org.example.pages.HomePage;
+import org.example.pages.RegisterPage;
 import org.testng.annotations.Test;
-
-import java.io.File;
-import java.nio.file.Paths;
-
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 /**
  * @author : andrei
@@ -18,20 +13,13 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
 public class DownloadPageTest extends Hook {
 
     @Test
-    public void downloadFileDemo() {
-        Locator moreList = page.locator("//a[@class='dropdown-toggle']").getByText("More");
-        moreList.click();
-        Locator fileDownload = page.locator("ul.dropdown-menu li", new Page.LocatorOptions().setHasText("File Download"));
-        fileDownload.click();
-        assertThat(page).hasTitle("File input - Multi select");
-        Download download = page.waitForDownload(() -> {
-            page.locator("//a[@class='btn btn-primary']").click();
-        });
-        System.out.println(download.path());
-        String path = System.getProperty("user.dir");
-        download.saveAs(Paths.get(path + File.separator + "src/main/resources/" + "SampleFile.pdf"));
-        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/DownloadPage.png")).setFullPage(true));
-        page.click("//a[contains(@href,'Index.html')]");
+    public void downloadFileDemo() throws InterruptedException {
+        HomePage homepage = new HomePage(page);
+        RegisterPage registerPage = new RegisterPage(page);
+        DownloadPage downloadPage = new DownloadPage(page);
+        homepage.navigateToRegisterPageAndAcceptCookies();
+        registerPage.navigateToDownloadPage();
+        downloadPage.downloadFile();
     }
 
 }

@@ -1,13 +1,9 @@
 package org.example.tests;
 
-import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
 import org.example.Hook;
+import org.example.pages.HomePage;
+import org.example.pages.RegisterPage;
 import org.testng.annotations.Test;
-
-import java.nio.file.Paths;
-
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
 /**
  * @author : andrei
@@ -17,13 +13,11 @@ public class RegisterPageTest extends Hook {
 
     @Test
     public void registerDemo() {
-        assertThat(page).hasTitle("Register");
-        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RegisterPage.png")).setFullPage(true));
-        page.locator("//input[@ng-model='FirstName']").fill("Andrei");
-        page.locator("//input[@ng-model='LastName']").fill("Pop");
-        page.locator("//button[@id='Button1']").screenshot(new Locator.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/RefreshButton.png")));
-        page.click("//button[@id='Button1']");
-        page.click("//a[contains(@href,'Index.html')]");
+        HomePage homepage = new HomePage(page);
+        RegisterPage registerPage = new RegisterPage(page);
+        homepage.navigateToRegisterPageAndAcceptCookies();
+        registerPage.addUserCredentials();
+        registerPage.refreshPageAndScreenShot();
     }
 
 }

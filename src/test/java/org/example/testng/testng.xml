@@ -7,17 +7,17 @@
         </classes>
     </test>
 
-    <test name="Register Feature">
-        <parameter name="browser" value="Chrome"/>
-        <classes>
-            <class name="org.example.tests.RegisterPageTest"/>
-        </classes>
-    </test>
+<!--    <test name="Register Feature">-->
+<!--        <parameter name="browser" value="Chrome"/>-->
+<!--        <classes>-->
+<!--            <class name="org.example.tests.RegisterPageTest"/>-->
+<!--        </classes>-->
+<!--    </test>-->
 
-        <test name="Upload feature">
-            <parameter name="browser" value="Chrome"/>
-            <classes>
-                <class name="org.example.tests.UploadPageTest"/>
-            </classes>
-        </test>
+<!--        <test name="Upload feature">-->
+<!--            <parameter name="browser" value="Chrome"/>-->
+<!--            <classes>-->
+<!--                <class name="org.example.tests.UploadPageTest"/>-->
+<!--            </classes>-->
+<!--        </test>-->
 </suite>

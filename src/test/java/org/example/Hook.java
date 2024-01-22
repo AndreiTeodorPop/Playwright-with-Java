@@ -1,15 +1,18 @@
 package org.example;
 
 import com.microsoft.playwright.*;
+import org.example.pages.HomePage;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
 import java.awt.*;
-import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import static org.example.tests.Helper.deleteDirectory;
+import static org.example.tests.Helper.makeVideoOfTest;
 
 /**
  * @author : andrei
@@ -19,8 +22,9 @@ public class Hook {
 
     protected Browser browser;
     protected BrowserContext browserContext;
-    protected Page page;
+    protected static Page page;
     protected Playwright playwright;
+    Path videoDirectory = Paths.get("target/demo-videos/");
 
     @BeforeMethod
     @Parameters({"browser"})
@@ -46,36 +50,21 @@ public class Hook {
 
         browser = browserType.launch(new BrowserType
                 .LaunchOptions().setHeadless(false));
+        deleteDirectory(videoDirectory.toFile());
         browserContext = browser.newContext(new Browser.NewContextOptions()
-                .setRecordVideoDir(Paths.get("target/demo-videos/"))
+                .setRecordVideoDir(videoDirectory)
                 .setRecordVideoSize(1280, 720)
                 .setViewportSize(width, height));
         page = browserContext.newPage();
-        navigateToRegisterPageAndAcceptCookies();
+        HomePage homePage = new HomePage(page);
+        homePage.navigateToHomePage();
     }
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-        if (result.getStatus() == 1) {
-            page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("target/demo-screenshots/IndexPage.png")));
-        }
-        String pathProject = System.getProperty("user.dir");
-        String testName = result.getMethod().getMethodName();
-        System.out.println(testName);
-        Path videoName = page.video().path().getFileName();
-        System.out.println(videoName);
         browser.close();
         page.close();
         playwright.close();
-        File file1 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + videoName);
-        File file2 = new File(pathProject + File.separator + "target/demo-videos" + File.separator + testName + ".webm");
-        boolean status = file1.renameTo(file2);
-        System.out.println(status);
-    }
-
-    public void navigateToRegisterPageAndAcceptCookies() {
-        page.navigate("https://demo.automationtesting.in/Index.html");
-        page.locator("//img[@id='enterimg']").click();
-        page.locator("(//p[@class='fc-button-label'])[1]").getByText("Consent").click();
+        makeVideoOfTest(result);
     }
 }
