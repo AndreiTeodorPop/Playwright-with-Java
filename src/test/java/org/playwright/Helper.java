@@ -14,7 +14,7 @@ import java.nio.file.Paths;
  **/
 public class Helper extends Hook {
 
-    private static final String buttonScreenshotFolder = "target/demo-screenshots/buttons/";
+    private static final String elementScreenshotFolder = "target/demo-screenshots/elements/";
     private static final String pageScreenshotFolder = "target/demo-screenshots/pages/";
     private static final String demoVideoFolder = "target/demo-videos";
     private static final String pathProject = System.getProperty("user.dir");
@@ -43,7 +43,7 @@ public class Helper extends Hook {
     }
 
     public static void takeScreenShotOfButton(String locator, String buttonName) {
-        page.locator(locator).screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(buttonScreenshotFolder + buttonName + ".png")));
+        page.locator(locator).screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(elementScreenshotFolder + buttonName + ".png")));
     }
 
     public static void renameVideoBasedOnTestName(ITestResult result) {
