@@ -4,8 +4,8 @@ import com.microsoft.playwright.Page;
 import org.playwright.Hook;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static org.playwright.Helper.makeScreenShotOfButton;
-import static org.playwright.Helper.makeScreenShotOfPage;
+import static org.playwright.Helper.takeScreenShotOfButton;
+import static org.playwright.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
@@ -32,14 +32,14 @@ public class RegisterPage extends Hook {
 
     public void refreshPageAndScreenShot() {
         page.locator(refreshButton).click();
-        makeScreenShotOfButton(refreshButton, "RefreshButton");
+        takeScreenShotOfButton(refreshButton, "RefreshButton");
     }
 
     public DownloadPage navigateToDownloadPage() {
         page.locator(moreList).getByText("More").click();
         page.locator(fileDownloadPage, new Page.LocatorOptions().setHasText("File Download")).click();
         assertThat(page).hasTitle("File input - Multi select");
-        makeScreenShotOfPage("DownloadPage");
+        takeScreenShotOfPage("DownloadPage");
         return new DownloadPage(page);
     }
 
@@ -47,7 +47,7 @@ public class RegisterPage extends Hook {
         page.locator(moreList).getByText("More").click();
         page.locator(fileDownloadPage, new Page.LocatorOptions().setHasText("File Upload")).click();
         assertThat(page).hasTitle("File input - Multi select");
-        makeScreenShotOfPage("UploadPage");
+        takeScreenShotOfPage("UploadPage");
         return new UploadPage(page);
     }
 }

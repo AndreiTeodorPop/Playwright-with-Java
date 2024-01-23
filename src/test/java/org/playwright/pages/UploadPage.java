@@ -5,7 +5,7 @@ import org.playwright.Hook;
 
 import java.nio.file.Paths;
 
-import static org.playwright.Helper.makeScreenShotOfButton;
+import static org.playwright.Helper.takeScreenShotOfButton;
 
 /**
  * @author : andrei
@@ -26,6 +26,6 @@ public class UploadPage extends Hook {
     }
 
     public void makeScreenShotOfUploadButton() {
-        makeScreenShotOfButton(uploadButtonScreenShot, "UploadButton");
+        takeScreenShotOfButton(uploadButtonScreenShot, "UploadButton");
     }
 }

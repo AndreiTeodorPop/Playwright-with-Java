@@ -21,7 +21,7 @@ public class Helper extends Hook {
 
 
     public static boolean verifyDownloadedFile(String expectedFileName, String location) throws InterruptedException {
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         File folder = new File(location);
         File[] fileList = folder.listFiles();
         boolean isFilePresent = false;
@@ -38,11 +38,11 @@ public class Helper extends Hook {
         return isFilePresent;
     }
 
-    public static void makeScreenShotOfPage(String pageName) {
+    public static void takeScreenShotOfPage(String pageName) {
         page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(pageScreenshotFolder + pageName + ".png")).setFullPage(true));
     }
 
-    public static void makeScreenShotOfButton(String locator, String buttonName) {
+    public static void takeScreenShotOfButton(String locator, String buttonName) {
         page.locator(locator).screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(buttonScreenshotFolder + buttonName + ".png")));
     }
 

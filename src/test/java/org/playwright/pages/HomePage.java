@@ -4,7 +4,7 @@ import com.microsoft.playwright.Page;
 import org.playwright.Hook;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static org.playwright.Helper.makeScreenShotOfPage;
+import static org.playwright.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
@@ -24,7 +24,7 @@ public class HomePage extends Hook {
     public HomePage navigateToHomePage() {
         page.navigate(url);
         assertThat(page).hasTitle("Index");
-        makeScreenShotOfPage("IndexPage");
+        takeScreenShotOfPage("IndexPage");
         return this;
     }
 
@@ -32,7 +32,7 @@ public class HomePage extends Hook {
         page.locator(registerPageRedirect).click();
         page.locator(acceptCookiesButton).getByText("Consent").click();
         assertThat(page).hasTitle("Register");
-        makeScreenShotOfPage("RegisterPage");
+        takeScreenShotOfPage("RegisterPage");
         return new RegisterPage(page);
     }
 
