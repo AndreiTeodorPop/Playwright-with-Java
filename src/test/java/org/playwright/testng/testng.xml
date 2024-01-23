@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<suite parallel="tests" name="Suite">
-    <test name="Download feature">
+<suite parallel="classes" thread-count="5" name="FeatureSuite">
+    <test name="FeaturesSuite">
         <parameter name="browser" value="Chrome"/>
         <classes>
+            <class name="org.playwright.tests.RegisterPageTest"/>
             <class name="org.playwright.tests.DownloadPageTest"/>
+            <class name="org.playwright.tests.UploadPageTest"/>
         </classes>
     </test>
-
-<!--    <test name="Register Feature">-->
-<!--        <parameter name="browser" value="Chrome"/>-->
-<!--        <classes>-->
-<!--            <class name="org.playwright.tests.RegisterPageTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
-
-<!--        <test name="Upload feature">-->
-<!--            <parameter name="browser" value="Chrome"/>-->
-<!--            <classes>-->
-<!--                <class name="org.playwright.tests.UploadPageTest"/>-->
-<!--            </classes>-->
-<!--        </test>-->
 </suite>

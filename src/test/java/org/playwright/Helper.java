@@ -2,6 +2,7 @@ package org.playwright;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
+import org.playwright.pages.BasePage;
 import org.testng.ITestResult;
 
 import java.io.File;
@@ -12,15 +13,14 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class Helper extends Hook {
+public class Helper extends BasePage {
 
-    private static final String elementScreenshotFolder = "target/demo-screenshots/elements/";
-    private static final String pageScreenshotFolder = "target/demo-screenshots/pages/";
-    private static final String demoVideoFolder = "target/demo-videos";
-    private static final String pathProject = System.getProperty("user.dir");
+    public Helper(Page page) {
+        super(page);
+    }
 
 
-    public static boolean verifyDownloadedFile(String expectedFileName, String location) throws InterruptedException {
+    public boolean verifyDownloadedFile(String expectedFileName, String location) throws InterruptedException {
         Thread.sleep(10000);
         File folder = new File(location);
         File[] fileList = folder.listFiles();
@@ -38,27 +38,27 @@ public class Helper extends Hook {
         return isFilePresent;
     }
 
-    public static void takeScreenShotOfPage(String pageName) {
-        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(pageScreenshotFolder + pageName + ".png")).setFullPage(true));
+    public void takeScreenShotOfPage(String pageName) {
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(Constants.PAGE_SCREENSHOT_FOLDER + pageName + ".png")).setFullPage(true));
     }
 
-    public static void takeScreenShotOfButton(String locator, String buttonName) {
-        page.locator(locator).screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(elementScreenshotFolder + buttonName + ".png")));
+    public void takeScreenShotOfButton(String locator, String buttonName) {
+        page.locator(locator).screenshot(new Locator.ScreenshotOptions().setPath(Paths.get(Constants.ELEMENT_SCREENSHOT_FOLDER + buttonName + ".png")));
     }
 
-    public static void renameVideoBasedOnTestName(ITestResult result) {
+    public void renameVideoBasedOnTestName(ITestResult result) {
         String testName = result.getMethod().getMethodName();
         Path videoName = page.video().path().getFileName();
-        File file1 = new File(pathProject + File.separator + demoVideoFolder + File.separator + videoName);
-        File file2 = new File(pathProject + File.separator + demoVideoFolder + File.separator + testName + ".webm");
+        File file1 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + videoName);
+        File file2 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + testName + ".webm");
         boolean status = file1.renameTo(file2);
         System.out.println("Video renamed to " + testName + ".webm - " + status);
     }
 
-    public static boolean deleteDirectory(File directoryToBeDeleted) {
+    public boolean deleteDirectory(File directoryToBeDeleted) {
         File[] allContent = directoryToBeDeleted.listFiles();
-        if(allContent != null) {
-            for (File file: allContent) {
+        if (allContent != null) {
+            for (File file : allContent) {
                 deleteDirectory(file);
             }
         }

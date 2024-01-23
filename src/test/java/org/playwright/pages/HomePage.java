@@ -1,38 +1,36 @@
 package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.Hook;
+import org.playwright.Constants;
+import org.playwright.Helper;
+import org.playwright.elements.WebTablePageElements;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-import static org.playwright.Helper.takeScreenShotOfPage;
 
 /**
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class HomePage extends Hook {
+public class HomePage extends BasePage {
 
-    private static final String url = "https://demo.automationtesting.in/Index.html";
-    private static final String registerPageRedirect = "//img[@id='enterimg']";
-    private static final String acceptCookiesButton = "(//p[@class='fc-button-label'])[1]";
-
+    Helper helper = new Helper(page);
 
     public HomePage(Page page) {
-        this.page = page;
+        super(page);
     }
 
     public HomePage navigateToHomePage() {
-        page.navigate(url);
+        page.navigate(Constants.APP_URL);
         assertThat(page).hasTitle("Index");
-        takeScreenShotOfPage("IndexPage");
+        helper.takeScreenShotOfPage("IndexPage");
         return this;
     }
 
     public RegisterPage navigateToRegisterPageAndAcceptCookies() {
-        page.locator(registerPageRedirect).click();
-        page.locator(acceptCookiesButton).getByText("Consent").click();
+        page.locator(WebTablePageElements.registerPageRedirect).click();
+        page.locator(WebTablePageElements.acceptCookiesButton).getByText("Consent").click();
         assertThat(page).hasTitle("Register");
-        takeScreenShotOfPage("RegisterPage");
+        helper.takeScreenShotOfPage("RegisterPage");
         return new RegisterPage(page);
     }
 

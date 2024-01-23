@@ -1,31 +1,30 @@
 package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.Hook;
+import org.playwright.Constants;
+import org.playwright.Helper;
+import org.playwright.elements.WebTablePageElements;
 
 import java.nio.file.Paths;
-
-import static org.playwright.Helper.takeScreenShotOfButton;
 
 /**
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class UploadPage extends Hook {
+public class UploadPage extends BasePage {
 
-    private static final String uploadButton = "//input[@id='input-4']";
-    private static final String uploadButtonScreenShot = "//div[@class='btn btn-primary btn-file']";
-    private static final String uploadFilePath = "src/main/resources/upload/SamplePicture.jpg";
+    Helper helper = new Helper(page);
 
     public UploadPage(Page page) {
-        this.page = page;
+        super(page);
     }
 
+
     public void uploadFile() {
-        page.setInputFiles(uploadButton, Paths.get(uploadFilePath));
+        page.setInputFiles(WebTablePageElements.uploadButton, Paths.get(Constants.UPLOAD_FILE));
     }
 
     public void makeScreenShotOfUploadButton() {
-        takeScreenShotOfButton(uploadButtonScreenShot, "UploadButton");
+        helper.takeScreenShotOfButton(WebTablePageElements.uploadButtonScreenShot, "UploadButton");
     }
 }
