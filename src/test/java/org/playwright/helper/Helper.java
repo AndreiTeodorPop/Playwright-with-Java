@@ -1,8 +1,8 @@
-package org.playwright;
+package org.playwright.helper;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import org.playwright.pages.BasePage;
+import org.playwright.pages.AbstractPage;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class Helper extends BasePage {
+public class Helper extends AbstractPage {
 
     public Helper(Page page) {
         super(page);

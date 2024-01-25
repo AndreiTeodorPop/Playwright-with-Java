@@ -2,8 +2,8 @@ package org.playwright.pages;
 
 import com.microsoft.playwright.Download;
 import com.microsoft.playwright.Page;
-import org.playwright.Constants;
-import org.playwright.Helper;
+import org.playwright.helper.Constants;
+import org.playwright.helper.Helper;
 import org.playwright.elements.WebTablePageElements;
 import org.testng.Assert;
 
@@ -13,7 +13,7 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class DownloadPage extends BasePage {
+public class DownloadPage extends AbstractPage {
     Helper helper = new Helper(page);
 
     public DownloadPage(Page page) {

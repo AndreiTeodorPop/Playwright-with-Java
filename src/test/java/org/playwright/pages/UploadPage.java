@@ -1,8 +1,8 @@
 package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.Constants;
-import org.playwright.Helper;
+import org.playwright.helper.Constants;
+import org.playwright.helper.Helper;
 import org.playwright.elements.WebTablePageElements;
 
 import java.nio.file.Paths;
@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class UploadPage extends BasePage {
+public class UploadPage extends AbstractPage {
 
     Helper helper = new Helper(page);
 

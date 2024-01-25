@@ -1,7 +1,7 @@
 package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.Helper;
+import org.playwright.helper.Helper;
 import org.playwright.elements.WebTablePageElements;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
@@ -10,7 +10,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class RegisterPage extends BasePage {
+public class RegisterPage extends AbstractPage {
 
     Helper helper = new Helper(page);
 
