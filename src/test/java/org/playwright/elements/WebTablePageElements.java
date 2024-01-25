@@ -9,6 +9,8 @@ public class WebTablePageElements {
     public static final String acceptCookiesButton = "(//p[@class='fc-button-label'])[1]";
     public static final String firstNameBox = "//input[@ng-model='FirstName']";
     public static final String lastNameBox = "//input[@ng-model='LastName']";
+    public static final String emailBox = "//input[@type='email']";
+    public static final String radioButtons = "#radiooptions";
     public static final String refreshButton = "//button[@id='Button1']";
     public static final String moreList = "//a[@class='dropdown-toggle']";
     public static final String fileDownloadPage = "ul.dropdown-menu li";

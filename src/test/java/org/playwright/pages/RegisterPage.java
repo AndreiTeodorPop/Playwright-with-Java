@@ -1,8 +1,9 @@
 package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.helper.Helper;
+import com.microsoft.playwright.options.AriaRole;
 import org.playwright.elements.WebTablePageElements;
+import org.playwright.helper.Helper;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 
@@ -19,13 +20,18 @@ public class RegisterPage extends AbstractPage {
         super(page);
     }
 
-    public void addUserName() {
+    public void addUserInfo() {
         page.locator(WebTablePageElements.firstNameBox).fill("Andrei");
         page.locator(WebTablePageElements.lastNameBox).fill("Pop");
+        page.locator(WebTablePageElements.emailBox).fill("automation@test.com");
+        page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("Male")).nth(0).click();
+        page.check("[value='Movies']");
+        page.check("[value='Hockey']");
+        page.locator("#country").selectOption("United States of America");
     }
 
     public void refreshPageAndScreenShot() {
-        page.locator(WebTablePageElements.refreshButton).click();
+        page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Refresh")).click();
         helper.takeScreenShotOfButton(WebTablePageElements.refreshButton, "RefreshButton");
     }
 
