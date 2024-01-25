@@ -13,7 +13,7 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class DownloadPage extends BasePage {
+public class DownloadPage extends AbstractPage {
     Helper helper = new Helper(page);
 
     public DownloadPage(Page page) {

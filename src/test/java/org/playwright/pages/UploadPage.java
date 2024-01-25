@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class UploadPage extends BasePage {
+public class UploadPage extends AbstractPage {
 
     Helper helper = new Helper(page);
 

@@ -2,10 +2,10 @@ package org.playwright.pages;
 
 import com.microsoft.playwright.Page;
 
-public class BasePage {
+public abstract class AbstractPage {
 
     protected Page page;
-    public BasePage(Page page) {
+    public AbstractPage(Page page) {
         this.page = page;
     }
 }

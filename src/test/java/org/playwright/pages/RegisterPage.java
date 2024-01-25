@@ -10,7 +10,7 @@ import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertTha
  * @author : andrei
  * @created : 1/22/2024, Monday
  **/
-public class RegisterPage extends BasePage {
+public class RegisterPage extends AbstractPage {
 
     Helper helper = new Helper(page);
 
