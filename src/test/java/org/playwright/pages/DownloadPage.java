@@ -7,6 +7,7 @@ import org.playwright.helper.Helper;
 import org.playwright.elements.WebTablePageElements;
 import org.testng.Assert;
 
+import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
@@ -24,11 +25,17 @@ public class DownloadPage extends AbstractPage {
         helper.deleteDirectory(Constants.PATH_DOWNLOAD_LOCATION.toFile());
     }
 
-    public void downloadFile() throws InterruptedException {
+    public void downloadFile() {
+        page.locator(WebTablePageElements.textBox).pressSequentially("This is my generated file");
+        page.locator(WebTablePageElements.createFileButton).click();
         Download download = page.waitForDownload(() -> {
-            page.locator(WebTablePageElements.downloadButton).click();
+            page.locator(WebTablePageElements.downloadFile).click();
         });
-        download.saveAs(Paths.get(Constants.DOWNLOAD_LOCATION + "SampleFile.pdf"));
-        Assert.assertTrue(helper.verifyDownloadedFile(Constants.SAMPLE_FILE_PDF, Constants.DOWNLOAD_LOCATION));
+        download.saveAs(Paths.get(Constants.DOWNLOAD_LOCATION + "info.txt"));
+    }
+
+    public void verifyDownloadFile() throws IOException {
+        Assert.assertTrue(Helper.verifyDownloadedFile(Constants.INFO_TXT, Constants.DOWNLOAD_LOCATION));
+        System.out.println("File " + Constants.INFO_TXT + " downloaded successfully");
     }
 }

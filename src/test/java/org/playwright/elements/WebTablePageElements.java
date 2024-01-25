@@ -2,7 +2,9 @@ package org.playwright.elements;
 
 public class WebTablePageElements {
 
-    public static final String downloadButton = "//a[@class='btn btn-primary']";
+    public static final String createFileButton = "#createTxt";
+    public static final String downloadFile = "#link-to-download";
+    public static final String textBox = "#textbox";
     public static final String registerPageRedirect = "//img[@id='enterimg']";
     public static final String acceptCookiesButton = "(//p[@class='fc-button-label'])[1]";
     public static final String firstNameBox = "//input[@ng-model='FirstName']";

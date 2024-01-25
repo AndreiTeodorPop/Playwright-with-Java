@@ -4,7 +4,10 @@ import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 import org.playwright.pages.AbstractPage;
 
+import org.apache.commons.io.FileUtils;
+
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Paths;
 
 /**
@@ -18,17 +21,16 @@ public class Helper extends AbstractPage {
     }
 
 
-    public boolean verifyDownloadedFile(String expectedFileName, String location) throws InterruptedException {
-        Thread.sleep(10000);
+    public static boolean verifyDownloadedFile(String expectedFileName, String location) throws IOException {
         File folder = new File(location);
         File[] fileList = folder.listFiles();
         boolean isFilePresent = false;
         assert fileList != null;
         for (File file : fileList) {
             if (file.isFile()) {
+                String data = FileUtils.readFileToString(file, "UTF-8");
                 String fileName = file.getName();
-                System.out.println(fileName);
-                if (fileName.matches(expectedFileName)) {
+                if (fileName.matches(expectedFileName) && !data.isEmpty()) {
                     isFilePresent = true;
                 }
             }
