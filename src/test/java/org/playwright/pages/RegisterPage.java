@@ -36,7 +36,7 @@ public class RegisterPage extends AbstractPage {
     }
 
     public DownloadPage navigateToDownloadPage() {
-        page.locator(WebTablePageElements.moreList).getByText("More").click();
+        page.locator(WebTablePageElements.dropDownToggle).getByText("More").click();
         page.locator(WebTablePageElements.fileDownloadPage, new Page.LocatorOptions().setHasText("File Download")).click();
         assertThat(page).hasTitle("File input - Multi select");
         helper.takeScreenShotOfPage("DownloadPage");
@@ -44,7 +44,7 @@ public class RegisterPage extends AbstractPage {
     }
 
     public UploadPage navigateToUploadPage() {
-        page.locator(WebTablePageElements.moreList).getByText("More").click();
+        page.locator(WebTablePageElements.dropDownToggle).getByText("More").click();
         page.locator(WebTablePageElements.fileDownloadPage, new Page.LocatorOptions().setHasText("File Upload")).click();
         assertThat(page).hasTitle("File input - Multi select");
         helper.takeScreenShotOfPage("UploadPage");
