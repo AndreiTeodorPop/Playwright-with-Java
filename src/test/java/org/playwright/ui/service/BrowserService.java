@@ -7,6 +7,10 @@ import java.awt.*;
 
 import static org.playwright.ui.helper.Constants.DEMO_VIDEOS_SAVE_LOCATION;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public class BrowserService {
     protected Browser browser;
     protected BrowserContext browserContext;

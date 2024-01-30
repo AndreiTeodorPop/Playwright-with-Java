@@ -3,16 +3,18 @@ package org.playwright.api.tests;
 import com.microsoft.playwright.APIResponse;
 import com.microsoft.playwright.options.RequestOptions;
 import org.json.JSONObject;
-import org.playwright.api.helper.Hooks;
 import org.playwright.api.data.EmployeeData;
+import org.playwright.api.helper.Hooks;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
 
 import static org.playwright.api.data.EmployeeDataBuilder.getEmployeeData;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertNotNull;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public class ApiTest extends Hooks {
 
     @Test

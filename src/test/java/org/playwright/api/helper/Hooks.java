@@ -6,6 +6,10 @@ import org.testng.annotations.BeforeClass;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public class Hooks {
     protected RequestManager manager;
 

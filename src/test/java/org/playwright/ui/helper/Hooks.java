@@ -1,6 +1,5 @@
 package org.playwright.ui.helper;
 
-import org.playwright.ui.helper.Constants;
 import org.playwright.ui.service.BrowserService;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;

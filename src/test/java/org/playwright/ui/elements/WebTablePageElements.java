@@ -1,5 +1,9 @@
 package org.playwright.ui.elements;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public class WebTablePageElements {
 
     public static final String createFileButton = "#createTxt";

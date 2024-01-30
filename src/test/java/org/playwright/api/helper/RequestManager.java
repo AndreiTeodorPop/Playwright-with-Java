@@ -8,6 +8,10 @@ import com.microsoft.playwright.options.RequestOptions;
 
 import java.util.Map;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public class RequestManager {
     private Playwright playwright;
     private APIRequestContext apiRequestContext;

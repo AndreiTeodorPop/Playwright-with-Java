@@ -4,6 +4,10 @@ import java.io.File;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+/**
+ * @author : andrei
+ * @created : 01/30/2024, Tuesday
+ **/
 public final class Constants {
 
     public static final String DOWNLOAD_LOCATION = System.getProperty("user.dir") + File.separator + "src/main/resources/download/";
