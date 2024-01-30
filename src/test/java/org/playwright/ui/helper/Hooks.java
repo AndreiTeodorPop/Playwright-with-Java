@@ -1,7 +1,7 @@
-package org.playwright;
+package org.playwright.ui.helper;
 
-import org.playwright.helper.Constants;
-import org.playwright.service.BrowserService;
+import org.playwright.ui.helper.Constants;
+import org.playwright.ui.service.BrowserService;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;

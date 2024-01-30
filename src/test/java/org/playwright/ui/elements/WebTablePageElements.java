@@ -1,4 +1,4 @@
-package org.playwright.elements;
+package org.playwright.ui.elements;
 
 public class WebTablePageElements {
 

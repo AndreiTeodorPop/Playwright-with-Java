@@ -1,4 +1,4 @@
-package org.playwright.helper;
+package org.playwright.ui.helper;
 
 import java.io.File;
 import java.nio.file.Path;

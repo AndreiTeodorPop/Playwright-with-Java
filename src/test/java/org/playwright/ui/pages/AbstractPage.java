@@ -1,4 +1,4 @@
-package org.playwright.pages;
+package org.playwright.ui.pages;
 
 import com.microsoft.playwright.Page;
 

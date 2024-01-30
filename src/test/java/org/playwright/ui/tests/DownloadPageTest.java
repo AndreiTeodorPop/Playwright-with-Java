@@ -1,9 +1,9 @@
-package org.playwright.tests;
+package org.playwright.ui.tests;
 
-import org.playwright.Hooks;
-import org.playwright.pages.DownloadPage;
-import org.playwright.pages.HomePage;
-import org.playwright.pages.RegisterPage;
+import org.playwright.ui.helper.Hooks;
+import org.playwright.ui.pages.DownloadPage;
+import org.playwright.ui.pages.HomePage;
+import org.playwright.ui.pages.RegisterPage;
 import org.testng.annotations.Test;
 
 import java.io.IOException;

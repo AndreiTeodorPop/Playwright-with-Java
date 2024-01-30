@@ -1,10 +1,10 @@
-package org.playwright.helper;
+package org.playwright.ui.helper;
 
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
-import org.playwright.pages.AbstractPage;
 
 import org.apache.commons.io.FileUtils;
+import org.playwright.ui.pages.AbstractPage;
 
 import java.io.File;
 import java.io.IOException;

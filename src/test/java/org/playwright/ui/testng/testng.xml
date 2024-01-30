@@ -3,9 +3,9 @@
     <test name="FeaturesSuite">
         <parameter name="browser" value="Chrome"/>
         <classes>
-            <class name="org.playwright.tests.RegisterPageTest"/>
-            <class name="org.playwright.tests.DownloadPageTest"/>
-            <class name="org.playwright.tests.UploadPageTest"/>
+            <class name="org.playwright.ui.tests.RegisterPageTest"/>
+            <class name="org.playwright.ui.tests.DownloadPageTest"/>
+            <class name="org.playwright.ui.tests.UploadPageTest"/>
         </classes>
     </test>
 </suite>

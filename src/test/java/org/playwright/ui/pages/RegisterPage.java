@@ -1,9 +1,9 @@
-package org.playwright.pages;
+package org.playwright.ui.pages;
 
 import com.microsoft.playwright.Page;
 import com.microsoft.playwright.options.AriaRole;
-import org.playwright.elements.WebTablePageElements;
-import org.playwright.helper.Helper;
+import org.playwright.ui.helper.Helper;
+import org.playwright.ui.elements.WebTablePageElements;
 
 import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 

@@ -1,9 +1,9 @@
-package org.playwright.pages;
+package org.playwright.ui.pages;
 
 import com.microsoft.playwright.Page;
-import org.playwright.helper.Constants;
-import org.playwright.helper.Helper;
-import org.playwright.elements.WebTablePageElements;
+import org.playwright.ui.helper.Constants;
+import org.playwright.ui.helper.Helper;
+import org.playwright.ui.elements.WebTablePageElements;
 
 import java.nio.file.Paths;
 

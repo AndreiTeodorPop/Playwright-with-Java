@@ -1,11 +1,11 @@
-package org.playwright.service;
+package org.playwright.ui.service;
 
 import com.microsoft.playwright.*;
-import org.playwright.helper.Helper;
+import org.playwright.ui.helper.Helper;
 
 import java.awt.*;
 
-import static org.playwright.helper.Constants.DEMO_VIDEOS_SAVE_LOCATION;
+import static org.playwright.ui.helper.Constants.DEMO_VIDEOS_SAVE_LOCATION;
 
 public class BrowserService {
     protected Browser browser;
