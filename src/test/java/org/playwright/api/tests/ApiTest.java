@@ -18,7 +18,7 @@ import static org.testng.AssertJUnit.assertNotNull;
  **/
 public class ApiTest extends Hooks {
 
-    @Test
+    @Test(priority=1)
     public void testGetAPI() {
         System.out.println("==============================GET======================================");
         final APIResponse response = this.manager.getRequest("/api/users/7");
@@ -38,7 +38,7 @@ public class ApiTest extends Hooks {
         System.out.println("=======================================================================");
     }
 
-    @Test
+    @Test(priority=2)
     public void testPostAPI() {
         System.out.println("==============================POST=====================================");
         final EmployeeData employeeData = getEmployeeData();
@@ -56,7 +56,7 @@ public class ApiTest extends Hooks {
         System.out.println("=======================================================================");
     }
 
-    @Test
+    @Test(priority=3)
     public void testPutAPI() {
         System.out.println("==============================PUT======================================");
         final EmployeeData employeeData = getEmployeeData();
@@ -73,7 +73,7 @@ public class ApiTest extends Hooks {
         System.out.println("=======================================================================");
     }
 
-    @Test
+    @Test(priority=4)
     public void testPatchAPI() {
         System.out.println("=============================PATCH=====================================");
         final EmployeeData employeeData = getEmployeeData();
@@ -90,7 +90,7 @@ public class ApiTest extends Hooks {
         System.out.println("=======================================================================");
     }
 
-    @Test
+    @Test(priority=5)
     public void testDeleteAPI() {
         System.out.println("=============================DELETE=====================================");
         final EmployeeData employeeData = getEmployeeData();
