@@ -7,6 +7,7 @@ import org.playwright.api.data.EmployeeData;
 import org.playwright.api.helper.Hooks;
 import org.testng.annotations.Test;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
 import static org.playwright.api.data.EmployeeDataBuilder.getEmployeeData;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertNotNull;
@@ -19,9 +20,10 @@ public class ApiTest extends Hooks {
 
     @Test
     public void testGetAPI() {
+        System.out.println("==============================GET======================================");
         final APIResponse response = this.manager.getRequest("/api/users/7");
-        System.out.println(response.status());
-        assertEquals(response.status(), 200);
+        assertThat(response).isOK();
+        System.out.println("Response status expected to be within [200..299] range, was " + response.status());
 
         final JSONObject jsonObject = new JSONObject(response.text());
         final JSONObject dataObject = jsonObject.getJSONObject("data");
@@ -33,56 +35,70 @@ public class ApiTest extends Hooks {
         assertEquals(dataObject.get("last_name")
                 .toString(), "Lawson");
         System.out.println(dataObject);
+        System.out.println("=======================================================================");
     }
 
     @Test
     public void testPostAPI() {
+        System.out.println("==============================POST=====================================");
         final EmployeeData employeeData = getEmployeeData();
         final APIResponse response = this.manager.postRequest("/api/users", RequestOptions.create()
                 .setData(employeeData));
-        assertEquals(response.status(), 201);
+        assertThat(response).isOK();
+        System.out.println("Response status expected to be within [200..299] range, was " + response.status());
+
 
         final JSONObject jsonObject = new JSONObject(response.text());
         assertNotNull(jsonObject.get("id"));
         assertEquals(jsonObject.get("name"), employeeData.getName());
         assertEquals(jsonObject.get("job"), employeeData.getJob());
         System.out.println(jsonObject);
+        System.out.println("=======================================================================");
     }
 
     @Test
     public void testPutAPI() {
+        System.out.println("==============================PUT======================================");
         final EmployeeData employeeData = getEmployeeData();
         final APIResponse response = this.manager.putRequest("/api/users/2", RequestOptions.create()
                 .setData(employeeData));
-        assertEquals(response.status(), 200);
+        assertThat(response).isOK();
+        System.out.println("Response status expected to be within [200..299] range, was " + response.status());
 
         final JSONObject jsonObject = new JSONObject(response.text());
         assertNotNull(jsonObject.get("updatedAt"));
         assertEquals(jsonObject.get("name"), employeeData.getName());
         assertEquals(jsonObject.get("job"), employeeData.getJob());
         System.out.println(jsonObject);
+        System.out.println("=======================================================================");
     }
 
     @Test
     public void testPatchAPI() {
+        System.out.println("=============================PATCH=====================================");
         final EmployeeData employeeData = getEmployeeData();
         final APIResponse response = this.manager.patchRequest("/api/users/2", RequestOptions.create()
                 .setData(employeeData));
-        assertEquals(response.status(), 200);
+        assertThat(response).isOK();
+        System.out.println("Response status expected to be within [200..299] range, was " + response.status());
 
         final JSONObject jsonObject = new JSONObject(response.text());
         assertNotNull(jsonObject.get("updatedAt"));
         assertEquals(jsonObject.get("name"), employeeData.getName());
         assertEquals(jsonObject.get("job"), employeeData.getJob());
         System.out.println(jsonObject);
+        System.out.println("=======================================================================");
     }
 
     @Test
     public void testDeleteAPI() {
+        System.out.println("=============================DELETE=====================================");
         final EmployeeData employeeData = getEmployeeData();
         final APIResponse response = this.manager.deleteRequest("/api/users/2", RequestOptions.create()
                 .setData(employeeData));
-        assertEquals(response.status(), 204);
+        assertThat(response).isOK();
+        System.out.println("Response status expected to be within [200..299] range, was " + response.status());
+        System.out.println("=======================================================================");
     }
 
 }

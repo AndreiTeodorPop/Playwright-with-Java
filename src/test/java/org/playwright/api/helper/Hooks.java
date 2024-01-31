@@ -25,7 +25,6 @@ public class Hooks {
 
     @AfterClass
     public void tearDown() {
-        this.manager.disposeAPIRequestContext();
         this.manager.closePlaywright();
     }
 }

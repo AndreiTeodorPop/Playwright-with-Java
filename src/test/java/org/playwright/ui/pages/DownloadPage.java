@@ -10,6 +10,8 @@ import org.testng.Assert;
 import java.io.IOException;
 import java.nio.file.Paths;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 /**
  * @author : andrei
  * @created : 1/22/2024, Monday

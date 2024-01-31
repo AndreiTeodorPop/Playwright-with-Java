@@ -31,37 +31,16 @@ public class RequestManager {
         return this.apiRequestContext.get(endpoint);
     }
 
-    public APIResponse getRequest(final String endpoint, final RequestOptions options) {
-        return this.apiRequestContext.get(endpoint, options);
-    }
-
-    public APIResponse postRequest(final String endpoint) {
-        return this.apiRequestContext.post(endpoint);
-    }
-
     public APIResponse postRequest(final String endpoint, final RequestOptions options) {
         return this.apiRequestContext.post(endpoint, options);
-    }
-
-    public APIResponse putRequest(final String endpoint) {
-        return this.apiRequestContext.put(endpoint);
     }
 
     public APIResponse putRequest(final String endpoint, final RequestOptions options) {
         return this.apiRequestContext.put(endpoint, options);
     }
-
-    public APIResponse patchRequest(final String endpoint) {
-        return this.apiRequestContext.patch(endpoint);
-    }
-
     public APIResponse patchRequest(final String endpoint, final RequestOptions options) {
         return this.apiRequestContext.patch(endpoint, options);
 
-    }
-
-    public APIResponse deleteRequest(final String endpoint) {
-        return this.apiRequestContext.delete(endpoint);
     }
 
     public APIResponse deleteRequest(final String endpoint, final RequestOptions options) {

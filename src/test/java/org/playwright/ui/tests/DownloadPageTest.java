@@ -15,7 +15,7 @@ import java.io.IOException;
 public class DownloadPageTest extends Hooks {
 
     @Test
-    public void downloadFileDemo() throws InterruptedException, IOException {
+    public void downloadFileDemo() throws IOException {
         HomePage homepage = new HomePage(page);
         RegisterPage registerPage = new RegisterPage(page);
         DownloadPage downloadPage = new DownloadPage(page);
