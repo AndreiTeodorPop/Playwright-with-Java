@@ -10,8 +10,6 @@ import org.testng.Assert;
 import java.io.IOException;
 import java.nio.file.Paths;
 
-import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
-
 /**
  * @author : andrei
  * @created : 1/22/2024, Monday
@@ -29,9 +27,9 @@ public class DownloadPage extends AbstractPage {
 
     public void downloadFile() {
         page.locator(WebTablePageElements.textBox).pressSequentially("This is my generated file");
-        page.locator(WebTablePageElements.createFileButton).click();
+        helper.clickElement(WebTablePageElements.createFileButton);
         Download download = page.waitForDownload(() -> {
-            page.locator(WebTablePageElements.downloadFile).click();
+            helper.clickElement(WebTablePageElements.downloadFile);
         });
         download.saveAs(Paths.get(Constants.DOWNLOAD_LOCATION + "info.txt"));
     }

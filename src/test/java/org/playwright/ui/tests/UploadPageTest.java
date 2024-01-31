@@ -15,11 +15,14 @@ public class UploadPageTest extends Hooks {
     @Test
     public void uploadFileDemo() {
         HomePage homepage = new HomePage(page);
-        RegisterPage registerPage = new RegisterPage(page);
-        UploadPage uploadPage = new UploadPage(page);
         homepage.navigateToHomePage();
-        homepage.navigateToRegisterPageAndAcceptCookies();
+        homepage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(page);
+        registerPage.acceptCookies();
         registerPage.navigateToUploadPage();
+
+        UploadPage uploadPage = new UploadPage(page);
         uploadPage.makeScreenShotOfUploadButton();
         uploadPage.uploadFile();
     }

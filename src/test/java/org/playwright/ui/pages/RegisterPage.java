@@ -20,18 +20,26 @@ public class RegisterPage extends AbstractPage {
         super(page);
     }
 
+    public RegisterPage acceptCookies() {
+        page.locator(WebTablePageElements.acceptCookiesButton).getByText("Consent").click();
+        return new RegisterPage(page);
+    }
+
     public void addUserInfo() {
-        page.locator(WebTablePageElements.firstNameBox).fill("Andrei");
-        page.locator(WebTablePageElements.lastNameBox).fill("Pop");
-        page.locator(WebTablePageElements.emailBox).fill("automation@test.com");
+        helper.sendKeys(WebTablePageElements.firstNameBox, "Andrei");
+        helper.sendKeys(WebTablePageElements.lastNameBox, "Pop");
+        helper.sendKeys(WebTablePageElements.emailBox, "automation@test.com");
         page.getByRole(AriaRole.RADIO, new Page.GetByRoleOptions().setName("Male")).nth(0).click();
         page.check("[value='Movies']");
         page.check("[value='Hockey']");
         page.locator("#country").selectOption("United States of America");
     }
 
-    public void refreshPageAndScreenShot() {
+    public void refreshPage() {
         page.getByRole(AriaRole.BUTTON, new Page.GetByRoleOptions().setName("Refresh")).click();
+    }
+
+    public void makeScreenShotOfRefreshButton() {
         helper.takeScreenShotOfButton(WebTablePageElements.refreshButton, "RefreshButton");
     }
 

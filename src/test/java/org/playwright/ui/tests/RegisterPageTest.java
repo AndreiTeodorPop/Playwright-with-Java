@@ -13,11 +13,14 @@ public class RegisterPageTest extends Hooks {
     @Test
     public void registerDemo() {
         HomePage homepage = new HomePage(page);
-        RegisterPage registerPage = new RegisterPage(page);
         homepage.navigateToHomePage();
-        homepage.navigateToRegisterPageAndAcceptCookies();
+        homepage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(page);
+        registerPage.acceptCookies();
         registerPage.addUserInfo();
-        registerPage.refreshPageAndScreenShot();
+        registerPage.refreshPage();
+        registerPage.makeScreenShotOfRefreshButton();
     }
 
 }

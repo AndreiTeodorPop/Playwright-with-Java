@@ -55,4 +55,12 @@ public class Helper extends AbstractPage {
         }
         return directoryToBeDeleted.delete();
     }
+
+    public void clickElement(String element) {
+        page.locator(element).click();
+    }
+
+    public void sendKeys(String element, String value) {
+        page.locator(element).fill(value);
+    }
 }

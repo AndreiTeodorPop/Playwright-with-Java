@@ -19,11 +19,11 @@ public class BrowserService {
 
 
     public void initPlaywright(String browserName) {
-        Helper helper = new Helper(page);
-        helper.deleteDirectory(DEMO_VIDEOS_SAVE_LOCATION.toFile());
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int) screenSize.getWidth();
-        int height = (int) screenSize.getHeight();
+//        Helper helper = new Helper(page);
+//        helper.deleteDirectory(DEMO_VIDEOS_SAVE_LOCATION.toFile());
+//        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+//        int width = (int) screenSize.getWidth();
+//        int height = (int) screenSize.getHeight();
         playwright = Playwright.create();
         BrowserType browserType;
         switch (browserName) {
@@ -41,11 +41,11 @@ public class BrowserService {
         }
 
         browser = browserType.launch(new BrowserType
-                .LaunchOptions().setHeadless(false));
-        browserContext = browser.newContext(new Browser.NewContextOptions()
-                .setRecordVideoDir(DEMO_VIDEOS_SAVE_LOCATION)
-                .setRecordVideoSize(1280, 720)
-                .setViewportSize(width, height));
+                .LaunchOptions().setHeadless(true));
+        browserContext = browser.newContext(new Browser.NewContextOptions());
+//                .setRecordVideoDir(DEMO_VIDEOS_SAVE_LOCATION)
+//                .setRecordVideoSize(1280, 720)
+//                .setViewportSize(width, height));
         page = browserContext.newPage();
     }
 

@@ -26,9 +26,8 @@ public class HomePage extends AbstractPage {
         return this;
     }
 
-    public RegisterPage navigateToRegisterPageAndAcceptCookies() {
-        page.locator(WebTablePageElements.registerPageRedirect).click();
-        page.locator(WebTablePageElements.acceptCookiesButton).getByText("Consent").click();
+    public RegisterPage navigateToRegisterPage() {
+        helper.clickElement(WebTablePageElements.registerPageRedirect);
         assertThat(page).hasTitle("Register");
         helper.takeScreenShotOfPage("RegisterPage");
         return new RegisterPage(page);

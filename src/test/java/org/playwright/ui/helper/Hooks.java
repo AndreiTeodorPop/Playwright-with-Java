@@ -24,13 +24,13 @@ public class Hooks extends BrowserService {
 
     @AfterMethod
     public void tearDown(ITestResult result) {
-        String testName = result.getMethod().getMethodName();
-        Path videoName = page.video().path().getFileName();
+//        String testName = result.getMethod().getMethodName();
+//        Path videoName = page.video().path().getFileName();
         closeBrowser();
         closePlaywright();
-        File file1 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + videoName);
-        File file2 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + testName + ".webm");
-        boolean status = file1.renameTo(file2);
-        System.out.println("Video renamed to " + testName + ".webm - " + status);
+//        File file1 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + videoName);
+//        File file2 = new File(Constants.PROJECT_PATH + File.separator + Constants.DEMO_VIDEOS_SAVE_LOCATION + File.separator + testName + ".webm");
+//        boolean status = file1.renameTo(file2);
+//        System.out.println("Video renamed to " + testName + ".webm - " + status);
     }
 }

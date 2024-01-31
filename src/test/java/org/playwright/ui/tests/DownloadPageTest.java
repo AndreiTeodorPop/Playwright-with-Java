@@ -17,14 +17,16 @@ public class DownloadPageTest extends Hooks {
     @Test
     public void downloadFileDemo() throws IOException {
         HomePage homepage = new HomePage(page);
-        RegisterPage registerPage = new RegisterPage(page);
-        DownloadPage downloadPage = new DownloadPage(page);
         homepage.navigateToHomePage();
-        homepage.navigateToRegisterPageAndAcceptCookies();
+        homepage.navigateToRegisterPage();
+
+        RegisterPage registerPage = new RegisterPage(page);
+        registerPage.acceptCookies();
         registerPage.navigateToDownloadPage();
+
+        DownloadPage downloadPage = new DownloadPage(page);
         downloadPage.clearDownloadFolder();
         downloadPage.downloadFile();
         downloadPage.verifyDownloadFile();
     }
-
 }
