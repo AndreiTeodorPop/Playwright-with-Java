@@ -11,7 +11,6 @@ import org.testng.annotations.Test;
  * @created : 1/4/2024, Thursday
  **/
 public class UploadPageTest extends Hooks {
-
     @Test
     public void uploadFileDemo() {
         HomePage homepage = new HomePage(page);

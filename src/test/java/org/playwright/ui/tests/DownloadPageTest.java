@@ -13,7 +13,6 @@ import java.io.IOException;
  * @created : 12/19/2023, Tuesday
  **/
 public class DownloadPageTest extends Hooks {
-
     @Test
     public void downloadFileDemo() throws IOException {
         HomePage homepage = new HomePage(page);
