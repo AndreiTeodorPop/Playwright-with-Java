@@ -21,9 +21,6 @@ public class BrowserService {
     public void initPlaywright(String browserName) {
         Helper helper = new Helper(page);
         helper.deleteDirectory(DEMO_VIDEOS_SAVE_LOCATION.toFile());
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        int width = (int) screenSize.getWidth();
-        int height = (int) screenSize.getHeight();
         playwright = Playwright.create();
         BrowserType browserType;
         switch (browserName) {
@@ -44,8 +41,7 @@ public class BrowserService {
                 .LaunchOptions().setHeadless(true));
         browserContext = browser.newContext(new Browser.NewContextOptions()
                 .setRecordVideoDir(DEMO_VIDEOS_SAVE_LOCATION)
-                .setRecordVideoSize(1280, 720)
-                .setViewportSize(width, height));
+                .setRecordVideoSize(1280, 720));
         page = browserContext.newPage();
     }
 
