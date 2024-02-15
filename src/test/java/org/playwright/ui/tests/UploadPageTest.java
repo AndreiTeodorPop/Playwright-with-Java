@@ -18,7 +18,7 @@ public class UploadPageTest extends Hooks {
         homepage.navigateToRegisterPage();
 
         RegisterPage registerPage = new RegisterPage(page);
-        registerPage.acceptCookies();
+//        registerPage.acceptCookies();
         registerPage.navigateToUploadPage();
 
         UploadPage uploadPage = new UploadPage(page);

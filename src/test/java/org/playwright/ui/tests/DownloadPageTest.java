@@ -20,7 +20,7 @@ public class DownloadPageTest extends Hooks {
         homepage.navigateToRegisterPage();
 
         RegisterPage registerPage = new RegisterPage(page);
-        registerPage.acceptCookies();
+//        registerPage.acceptCookies();
         registerPage.navigateToDownloadPage();
 
         DownloadPage downloadPage = new DownloadPage(page);
