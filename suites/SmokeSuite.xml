@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name="SmokeSuite" parallel="classes" thread-count="5">
+    <test name="SmokeSuite">
+        <parameter name="browser" value="Chrome"/>
+        <classes>
+            <class name="org.playwright.ui.tests.RegisterPageTest"/>
+            <class name="org.playwright.ui.tests.DownloadPageTest"/>
+        </classes>
+    </test>
+</suite>
