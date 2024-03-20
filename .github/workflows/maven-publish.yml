@@ -27,5 +27,11 @@ jobs:
         server-id: github # Value of the distributionManagement/repository/id field of the pom.xml
         settings-path: ${{ github.workspace }} # location for the settings.xml file
 
+    - name: Install Playwright with browsers
+      run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
+
     - name: Run automation suite with Playwright
       run: mvn clean install -DsuiteXmlFile=suites/${{github.event.inputs.suite}} -PCustomSuite
+
+    - name: Check docker version
+      run: docker --version
